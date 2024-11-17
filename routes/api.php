@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Api\AuthController;
 use App\Http\Controllers\Api\MessageController;
 use App\Http\Controllers\Api\ReportController;
 use Illuminate\Http\Request;
@@ -16,10 +17,14 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
-    return $request->user();
+Route::middleware('auth:sanctum')->group(function(){
+    Route::post('send-messages', [MessageController::class, 'send']);
+    Route::get('report', [ReportController::class, 'index']);
+    Route::get('export-report', [ReportController::class, 'export']);
+
+    Route::post('logout', [AuthController::class, 'logout']);
 });
 
-Route::post('send-messages', [MessageController::class, 'send']);
-Route::get('report', [ReportController::class, 'index']);
-Route::get('export-report', [ReportController::class, 'export']);
+Route::post('login', [AuthController::class, 'login']);
+
+
