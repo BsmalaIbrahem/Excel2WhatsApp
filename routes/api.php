@@ -22,3 +22,4 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 
 Route::post('send-messages', [MessageController::class, 'send']);
 Route::get('report', [ReportController::class, 'index']);
+Route::get('export-report', [ReportController::class, 'export']);

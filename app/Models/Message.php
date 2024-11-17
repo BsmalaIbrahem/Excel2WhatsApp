@@ -22,8 +22,15 @@ class Message extends Model
         'is_failed' => 'boolean',
     ];
 
+    protected $appends =['user_phone'];
+
     public function phone()
     {
         return $this->belongsTo(Phone::class);
+    }
+
+    public function getUserPhoneAttribute()
+    {
+        return $this->phone['value'];
     }
 }

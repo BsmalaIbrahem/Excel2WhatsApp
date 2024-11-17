@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Api;
 
+use App\Exports\ReportExport;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\ReportRequest;
 use App\Services\ReportService;
@@ -22,6 +23,11 @@ class ReportController extends Controller
 
         $report = $this->service->get();
 
-        return Response(['success' => 'true', 'data' => $report]);
+        return Response(['success' => 'true', 'message' => 'success' ,'data' => $report]);
+    }
+
+    public function export(ReportRequest $request)
+    {
+        return Excel::download(new ReportExport, 'report.xlsx');
     }
 }
