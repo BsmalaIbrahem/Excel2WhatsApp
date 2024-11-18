@@ -20,10 +20,12 @@ Excel2WhatsApp is a Laravel-based application designed to automate the process o
 - Authentication: Secure access via Laravel Sanctum for user login and token-based authentication.
 - Twilio integration: Sends WhatsApp messages using the Twilio API.
 
-## Technologies Used
+## 🛠 Skills
 - Laravel: PHP framework for building the web application.
 - MySQL: Relational database to store customer and message data.
 - Maatwebsite Excel package: For handling Excel file uploads and parsing.
 - Twilio: API service for sending WhatsApp messages.
 - Laravel Sanctum: For user authentication and API token management.
+
+
 
